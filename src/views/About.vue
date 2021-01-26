@@ -4,7 +4,7 @@
       <h3> {{ obj.a }} </h3>  
       <h3> {{ obj.b }} </h3>
       <h3> {{ obj.c }} </h3>
-    <br>
+    
     <button @click="add">点我+1</button>
   </div>
 </template>
@@ -16,7 +16,8 @@ export default {
     return {
       obj: {
         a: 1,
-        b: 2
+        b: 2,
+        // c: 3  //在 data  中声明之后 为响应式数据 在初始化的时候就被加入了 getter  和  setter
       }
     };
   },
@@ -27,10 +28,17 @@ export default {
       }
     }
   },
+  /*
+      不支持异步，当computed内有异步操作时无效，无法监听数据的变化
+      多个属性改变导致一个属性变化使用computed:{}  支持缓存，只有依赖数据发生改变，才会重新进行计算
+  */
+  computed: {
+
+  },
   methods: {
     add() {
       this.obj.c = 3
-      this.obj.c ++;
+      this.obj.c +=1;
       console.log("我被添加了", this.obj);
     }
   }

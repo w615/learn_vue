@@ -3,7 +3,7 @@
     <button  @click = "click">获取新增的属性</button>
     <button  @click = "emitEvent">点击发射事件</button>
     <button @click= "carEmit">点击用$bus 发射事件</button>
-    <h1>{{ msg }} --{{ city }}</h1>
+    <h1>{{ msg }} -- {{ city }}</h1>
     <h2>{{goods.stock}}</h2>
     <h2>{{goods.price}}</h2>
     <h2>{{goods.title}}</h2>
@@ -35,15 +35,14 @@ export default {
     this.imgAlt = "图片"
   },
   //挂载实例 操作dom 需要在此声明周期之后
-  mounted(){
-    
+  mounted() {
     this.$set(this.goods,"price",99)
     // this.obj = "新增的"
     // this.goods.price = 99
     // this.$set(this.obj,"price","价格")
      console.log(this.$eventBus,36);
   },
-  methods:{
+  methods: {
     click() {
       // this.goods.title = "没有捕获的对象属性不能出现"
        this.$set(this.goods,"title","通过$set把新增属性挂载在原型上") 
@@ -52,9 +51,18 @@ export default {
       this.$emit("emitEvent",this.goods.stock)
     },
     carEmit() {
-      this.$eventBus.$emit("dobus","事件中心原理是因为实例拥有所有的方法")
+      this.$eventBus.$emit("dobus","事件中心原理:因为实例拥有构造函数和原型的所有方法")
     }
   }
 };
 </script>
-<style scoped></style>
+<style scoped>
+.hello{
+  background: #ccc;
+  position: absolute;
+  bottom:0;
+  top:120px;
+  left:0;
+  right:0
+}
+</style>
