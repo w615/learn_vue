@@ -40,12 +40,12 @@ export default {
     // this.obj = "新增的"
     // this.goods.price = 99
     // this.$set(this.obj,"price","价格")
-     console.log(this.$eventBus,36);
+    console.log(this.$eventBus,36);
   },
   methods: {
     click() {
       // this.goods.title = "没有捕获的对象属性不能出现"
-       this.$set(this.goods,"title","通过$set把新增属性挂载在原型上") 
+      this.$set(this.goods,"title","通过$set把新增属性挂载在原型上") 
     },
     emitEvent() {
       this.$emit("emitEvent",this.goods.stock)
@@ -61,7 +61,7 @@ export default {
   background: #ccc;
   position: absolute;
   bottom:0;
-  top:120px;
+  top:300px;
   left:0;
   right:0
 }
