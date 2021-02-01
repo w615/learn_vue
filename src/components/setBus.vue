@@ -36,6 +36,7 @@ export default {
   },
   //挂载实例 操作dom 需要在此声明周期之后
   mounted() {
+    // this.$set(this.goods,"imgAlt",'假如我在data里没有定于goods.imgAlt: , 那么就需要在 mounted 之后 使用$set 为新增的key 添加 get set 方法 从而让其成为响应式的')
     this.$set(this.goods,"price",99)
     // this.obj = "新增的"
     // this.goods.price = 99
