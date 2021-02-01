@@ -1,20 +1,20 @@
 <template>
   <div class="home"  >
     <div>首页区域</div>
-    <HelloWorld msg="父组件传值到子组件进行显示"   @emitEvent="dosomething"/>
+    <SetBus msg="父组件传值到子组件进行显示"   @emitEvent="dosomething"/>
     <Ref  ref= "home"></Ref>
     <button @click= 'toVal'>点击此按钮触发事件向子组件 ref.vue 传值</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import SetBus from "@/components/setBus.vue";
 import Ref  from '../components/ref.vue' ;
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    SetBus,
     Ref
   },
   data() {
@@ -31,8 +31,7 @@ export default {
   },
   methods: {
     dosomething(value){
-      console.log("接收到了");
-      console.log(value,123);
+      console.log("接收到了",value,123);
     },
     toVal() {
       this.$refs.home.setMsg(this.msg)

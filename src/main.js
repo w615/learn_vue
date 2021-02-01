@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-
+import './Permission' // permission control
 Vue.config.devtools = false;
 Vue.config.productionTip = false;
 Vue.prototype.$eventBus = new Vue()
@@ -15,7 +15,6 @@ Vue.directive('learnDirective',{
   },
   //   inserted: function () {},
   inserted: function (el,binding) {
-    
     console.log(el,12);
     console.log(13,binding);
     el.style.color = binding.value
