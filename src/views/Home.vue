@@ -1,21 +1,26 @@
 <template>
   <div class="home"  >
     <div>首页区域</div>
+  
     <SetBus msg="父组件传值到子组件进行显示"   @emitEvent="dosomething"/>
     <Ref  ref= "home"></Ref>
     <button @click= 'toVal'>点击此按钮触发事件向子组件 ref.vue 传值</button>
+    <NextTick/>
   </div>
 </template>
 
 <script>
 import SetBus from "@/components/setBus.vue";
 import Ref  from '../components/ref.vue' ;
+import NextTick  from '../components/nextTick' ;
+
 
 export default {
   name: "Home",
   components: {
     SetBus,
-    Ref
+    Ref,
+    NextTick
   },
   data() {
     return {

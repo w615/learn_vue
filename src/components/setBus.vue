@@ -62,7 +62,7 @@ export default {
   background: #ccc;
   position: absolute;
   bottom:0;
-  top:300px;
+  top:400px;
   left:0;
   right:0
 }

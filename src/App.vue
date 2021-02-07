@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
+      <!-- router-link  replace 设置不可后退的连接  tag属性 把默认转化的a标签转化为为 tag指向的标签   tag='button'-->
+      <!-- router-link-active    active-class='active'-->
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/profile">profile</router-link>
     </div>
     <router-view />
   </div>
