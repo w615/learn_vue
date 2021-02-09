@@ -1,11 +1,14 @@
 <template>
-  <div class="home"  >
+  <div class="home">
     <div>首页区域</div>
-  
+    {{$store.state.message}}
     <SetBus msg="父组件传值到子组件进行显示"   @emitEvent="dosomething"/>
     <Ref  ref= "home"></Ref>
     <button @click= 'toVal'>点击此按钮触发事件向子组件 ref.vue 传值</button>
     <NextTick/>
+    <div>
+
+    </div>
   </div>
 </template>
 
@@ -30,7 +33,9 @@ export default {
   //一旦加载就开始等待监听这个事件，并且执行一个回调函数的方法
   created() {
     this.$eventBus.$on("dobus", (value)=> {console.log(value);})
+    console.log(this.$store,33);
   },
+ 
   watch: {
 
   },

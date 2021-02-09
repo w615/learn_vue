@@ -30,7 +30,6 @@
     },
     created() {
       console.log(111);
-      console.log(this.$refs['hello']);
       this.$nextTick(() => {
         console.log(222);
         console.log(this.$refs['hello']);

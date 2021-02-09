@@ -31,7 +31,7 @@ export default {
     }
   },
   mounted() {
- 
+    console.log(this.$store,34);
   },
   /*
       不支持异步，当computed内有异步操作时无效，无法监听数据的变化
