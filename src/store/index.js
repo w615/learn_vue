@@ -8,7 +8,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   // 全局状态
   state: {
-    value: "root",
+    value: 20,
+    title: "主页",
     message: "vueX learn ",
     userName: "wdc615",
     value_1: 12,
@@ -40,6 +41,7 @@ export default new Vuex.Store({
     "modify-value"(state, payload) {
       console.log("root modify run....");
       console.log(state, payload);
+      state.value += payload;
     },
   },
   // 异步操作只能写在actions 里面
@@ -50,6 +52,14 @@ export default new Vuex.Store({
       }, 1000);
       console.log(context);
       console.log(rest, 31);
+    },
+    tick({ commit, state }, payload) {
+      console.log(commit, payload);
+      console.log("tick running");
+      console.log(state, 58);
+      setInterval(() => {
+        commit("modify-value", payload);
+      }, 1000);
     },
   },
   // 整个模块

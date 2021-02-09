@@ -7,7 +7,8 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/profile">profile</router-link> |
       <router-link to="/vuexAction">vuexAction</router-link> |
-      <router-link to="/vuex">vuex</router-link>
+      <router-link to="/vuex">vuex</router-link> |
+      <router-link to="/vuexAll">vuex辅助函数</router-link>
     </div>
     <router-view />
   </div>

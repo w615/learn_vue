@@ -50,6 +50,15 @@ const routes = [
       import(/* webpackChunkName: "vuex" */ "../views/vuexAction"),
     meta: { title: "vuexAction", affix: true },
   },
+  {
+    path: "/vuexAll",
+    name: "vuexAll",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "vuex" */ "../views/vuexAll"),
+    meta: { title: "vuexAll", affix: true },
+  },
 ];
 
 const router = new VueRouter({

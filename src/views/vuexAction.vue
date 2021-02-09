@@ -2,7 +2,7 @@
   <div class="action">
     {{this.$store.state.value_1}}
     <button @click="valueCount">加一</button>
-    <!-- <p>{{}}</p> -->
+    <p>state.value:{{$store.state.user.value}}</p>
     <div>
       {{$store.getters.sub}}
     </div>
@@ -20,12 +20,17 @@ import { mapGetters } from 'vuex';
       },
       modifyState() { // //当模块有命名空间时，调用的是模块的根模块
         // this.$store.commit('modify-value','testvalue')
-        this.$store.commit('user/modify-value','testvalue')
+        // this.$store.commit('user/modify-value','testvalue');
+        this.$store.dispatch('tick','action');
+        this.$store.dispatch('user/tick','1');
+
       }
     },
     mounted(){
     console.log(this.$store,37);
     console.log(this.$store.state.user.value,40);
+    // 调用uesr/getter/userInfo()
+    console.log(this.$store.getters['user/userInfo'],33);
   },
 //     var obj1= {
 //     a:1,
