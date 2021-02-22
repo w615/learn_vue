@@ -34,9 +34,6 @@ const routes = [
   {
     path: "/vuex",
     name: "vuex",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "vuex" */ "../views/vuex.vue"),
     meta: { title: "vuex", affix: true },
   },
@@ -53,11 +50,14 @@ const routes = [
   {
     path: "/vuexAll",
     name: "vuexAll",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "vuex" */ "../views/vuexAll"),
     meta: { title: "vuexAll", affix: true },
+  },
+  {
+    path: "/other",
+    name: "Other",
+    component: () => import(/* webpackChunkName: "vuex" */ "../views/Other"),
+    meta: { title: "Other", affix: true },
   },
 ];
 
