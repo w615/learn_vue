@@ -64,8 +64,7 @@ import {mapState} from 'vuex';
         let tmp = 0;
         this.count.forEach((item)=>tmp+=item);
         return tmp;
-        },
-    
+        },  
         ...mapState({
         message:'message',
         name:'userName',
@@ -73,9 +72,8 @@ import {mapState} from 'vuex';
           return  state.value_1 + state.value_2
         }
       }),
-
     },
-    //       var obj1= {
+//       var obj1= {
 //     a:1,
 //     b:2
 //   } 
@@ -90,9 +88,9 @@ import {mapState} from 'vuex';
 // console.log(newObj2);
 
     created(){
-      console.log(43,`全局状态下相加${this.count1}`);
-      console.log(this.$store,56);
-      // map
+      // console.log(43,`全局状态下相加${this.count1}`);
+      // console.log(this.$store,56);
+      // map  
       let newstr= Array.prototype.map.call(this.str, function(x) {  //同时利用了call()方法
       return x;
       }).reverse().join(',');
@@ -123,7 +121,7 @@ import {mapState} from 'vuex';
 }
 /*
 //     特点： 无返回值  不可break 
-//     forEach(currentValue,index,arr)方法用于调用数组的每个元素，并将元素传递给回调函数。 
+//     forEach((currentValue,index,arr)=>{})方法用于调用数组的每个元素，并将元素传递给回调函数。 
 //     currentValue 当前元素
 //       index 当前元素的索引值 
 //       arr   前元素所属的数组对象
