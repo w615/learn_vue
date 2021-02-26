@@ -71,6 +71,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "vuex" */ "../views/Cars"),
     meta: { title: "Cars", affix: true },
   },
+  {
+    path: "/array",
+    name: "Array",
+    component: () => import(/* webpackChunkName: "vuex" */ "../views/Array"),
+    meta: { title: "Array", affix: true },
+  },
 ];
 
 const router = new VueRouter({

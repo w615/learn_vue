@@ -1,10 +1,10 @@
 <template>
   <div class="profile">
     <p>forEach 和 map 的区别</p>
-    数据:{{ num }}
+    <!-- 数据:{{ num }} -->
     {{ $store.state.message }}
     <!-- {{this.userName}} -->
-    <button @click="num">合计</button>
+    <!-- <button @click="num">合计</button> -->
     <button @click="aryFlat(ary)">
       点击扁平化数组
     </button>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+// import { mapState } from "vuex";
 export default {
   name: "profile",
   data() {
@@ -24,91 +24,19 @@ export default {
       ary: [1, 2, [3, 4], [5, [6, 7]]],
     };
   },
-  //
-  // computed: {
-  //   message() {
-  //     return this.$store.state.message;
-  //   },
-  //   userName() {
-  //     return this.$store.state.userName;
-  //   }
-  // },
-  // computed :mapState(['message','userName']),
-  // computed:mapState({
-  //   message:'message',
-  //   name:'userName',
-  //   count1:(state)=>{
-  //     return  state.value_1 + state.value_2
-  //   }
-  // }),
-  // computed: {
-  //   num(){
-  //     let tmp = 0;
-  //     this.count.forEach((item)=>tmp+=item);
-  //     return tmp;
-  //   }
-  // },
-  // 合并两个方法
-  // computed : Object.assgin(
-  //   { num(){
-  //     let tmp = 0;
-  //     this.count.forEach((item)=>tmp+=item);
-  //     return tmp;
-  //   }},
-  //     mapState({
-  //     message:'message',
-  //     name:'userName',
-  //     count1:(state)=>{
-  //       return  state.value_1 + state.value_2
-  //     }
-  //   }),
-  // ),
-  computed: {
-    num() {
-      let tmp = 0;
-      this.count.forEach((item) => (tmp += item));
-      return tmp;
-    },
-    ...mapState({
-      message: "message",
-      name: "userName",
-      count1: (state) => {
-        return state.value_1 + state.value_2;
-      },
-    }),
-  },
-  //       var obj1= {
-  //     a:1,
-  //     b:2
-  //   }
-  //    var obj2= {
-  //     c:3,
-  //     d:4
-  //   }
-  // 以下两种方法等价且不会修改原对象
-  // var newObj1 = Object.assign({},obj1,obj2)
-  // console.log(newObj1);
-  // var newObj2 = {...obj1,...obj2}
-  // console.log(newObj2);
-
   created() {
-    const arr2 = [0, 1, 2, [[[3, 4]]]];
-
-    console.log(arr2.flat(2));
-    // Array.reduce
-
-    this.arr.reduce((total, item, index) => {
-      return console.log(total, item, index, 101);
-    });
-
-    // 推荐文章 https://www.zhihu.com/collection/309204735
-    var arr = [1, 2, 3, 4, 5];
-    var num = 3;
-    arr.some(function(v) {
-      if (v == num) {
-        return; //
+    // ----------实现continueb
+    var arr1 = [1, 2, 3, 4, 5];
+    arr1.forEach(function(item) {
+      if (item === 3) {
+        // 跳过数组等于3;
+        return;
       }
-      console.log(v, 95);
+      console.log(item);
+    });
+    // forEach
+    this.count.forEach((element, index) => {
+      console.log(element, index, 114); // 打开控制台 查看
     });
     // ------实现break
     try {
@@ -122,20 +50,29 @@ export default {
     } catch (e) {
       if (e.message != "EndIterative") throw e;
     }
-    // ----------实现continue
-    var arr1 = [1, 2, 3, 4, 5];
-    arr1.forEach(function(item) {
-      if (item === 3) {
-        // 跳过数组等于3;
-        return;
-      }
-      console.log(item);
-    });
-    // forEach
-    this.count.forEach((element, index) => {
-      console.log(element, index, 114); // 打开控制台 查看
-    });
+    // 推荐文章 https://www.zhihu.com/collection/309204735
+    //     最应该使用的 every/some
+    // 在需要 break 的场景下, 我们可以使用 every 或者 some, 也比较推荐这种方式.
 
+    // every 和 some 的用法如下, 它们会根据返回值来判断是否继续迭代, 能够完美满足我们的需求.
+    // every 在碰到 return false 的时候, 中止循环.
+    // some 在碰到 return true 的时候, 中止循环.
+    var arr = [1, 2, 3, 4, 5];
+    arr.some(function(v) {
+      if (v === 3) {
+        return true; //
+      }
+      console.log(v, 95);
+    });
+    var a = [1, 2, 3, 4, 5];
+    a.some(function(item) {
+      console.log(item); // 输出：1,2
+      if (item === 2) {
+        return true;
+      } else {
+        return false;
+      }
+    });
     // map用法 逆序
     let newstr = Array.prototype.map
       .call(this.str, (x) => {
@@ -176,6 +113,71 @@ export default {
     },
   },
 };
+// computed: {
+//   message() {
+//     return this.$store.state.message;
+//   },
+//   userName() {
+//     return this.$store.state.userName;
+//   }
+// },
+// computed :mapState(['message','userName']),
+// computed:mapState({
+//   message:'message',
+//   name:'userName',
+//   count1:(state)=>{
+//     return  state.value_1 + state.value_2
+//   }
+// }),
+// computed: {
+//   num(){
+//     let tmp = 0;
+//     this.count.forEach((item)=>tmp+=item);
+//     return tmp;
+//   }
+// },
+// 合并两个方法
+// computed : Object.assgin(
+//   { num(){
+//     let tmp = 0;
+//     this.count.forEach((item)=>tmp+=item);
+//     return tmp;
+//   }},
+//     mapState({
+//     message:'message',
+//     name:'userName',
+//     count1:(state)=>{
+//       return  state.value_1 + state.value_2
+//     }
+//   }),
+// ),
+// computed: {
+//   num() {
+//     let tmp = 0;
+//     this.count.forEach((item) => (tmp += item));
+//     return tmp;
+//   },
+//   ...mapState({
+//     message: "message",
+//     name: "userName",
+//     count1: (state) => {
+//       return state.value_1 + state.value_2;
+//     },
+//   }),
+// },
+//       var obj1= {
+//     a:1,
+//     b:2
+//   }
+//    var obj2= {
+//     c:3,
+//     d:4
+//   }
+// 以下两种方法等价且不会修改原对象
+// var newObj1 = Object.assign({},obj1,obj2)
+// console.log(newObj1);
+// var newObj2 = {...obj1,...obj2}
+// console.log(newObj2);
 </script>
 
 <style scoped>
@@ -201,9 +203,9 @@ export default {
 //           arr1[index] = item;
 //       })
 //       console.log(arr1)
------------------------------------------------------
-https://www.runoob.com/jsref/jsref-foreach.html
-forEach(): 没有返回值，本质上等同于 for 循环，对每一项执行 function 函数。即map是返回一个新数组，原数组不变，forEach 是改变原数组。;
+
+forEach(): 没有返回值，本质上等同于 for 循环，对每一项执行 function 函数。
+forEach 是改变原数组。;
   如何实现break
   try {
         var array = ["first","second","third","fourth"];        // 执行到第3次，结束循环
@@ -263,7 +265,7 @@ result.push(item);
 while (ary.some(Array.isArray)) {
 ary = [].concat(...ary);
 }
-//   特点： 有返回值 不可break     https://www.runoob.com/jsref/jsref-map.html
+//   特点： 有返回值 不可break  即map是返回一个新数组，原数组不变，    https://www.runoob.com/jsref/jsref-map.html
 map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
 
 map() 方法按照原始数组元素顺序依次处理元素。

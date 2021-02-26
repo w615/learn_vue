@@ -12,6 +12,7 @@
       <router-link to="/other">slot</router-link>
       <router-link to="/list">商品列表</router-link> |
       <router-link to="/cars">购物车</router-link> |
+      <router-link to="/array">Array去重</router-link> |
     </div>
     <router-view />
   </div>
