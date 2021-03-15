@@ -185,27 +185,9 @@ export default {
   margin-left: 20px;
 }
 /*
-//    特点： 无返回值  不可break 
-      网址：https://www.runoob.com/jsref/jsref-foreach.html 
-//     forEach((currentValue,index,arr)=>{})方法用于调用数组的每个元素，并将元素传递给回调函数。 
-//     currentValue 当前元素
-//       index 当前元素的索引值 
-//       arr   前元素所属的数组对象
-//       使用forEach可以跳过空元素，
-//       var arr = [1, 2, 3, 5, , 6, 7, 8, 9];
-//         arr.forEach(function(item, index) {
-//             console.log(item, index);
-//         })
-//       使用forEach复制数组的方法 (全部复制，不跳过空元素，)
-//       var arr = [2, 4, 6, , 8, 3, 2];
-//       var arr1 = [];
-//       arr.forEach(function(item, index) {
-//           arr1[index] = item;
-//       })
-//       console.log(arr1)
+/* //    特点： 无返回值  不可break 
 
-forEach(): 没有返回值，本质上等同于 for 循环，对每一项执行 function 函数。
-forEach 是改变原数组。;
+
   如何实现break
   try {
         var array = ["first","second","third","fourth"];        // 执行到第3次，结束循环

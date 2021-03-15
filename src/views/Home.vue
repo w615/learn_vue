@@ -30,13 +30,34 @@ export default {
       msg: "这是父组件data中定义的",
     };
   },
+  beforeCreate() {
+    console.log("父组建的创建前");
+  },
+
   //一旦加载就开始等待监听这个事件，并且执行一个回调函数的方法
   created() {
     this.$eventBus.$on("dobus", (value) => {
       console.log(value);
     });
     console.log(this.$store, 33);
+    console.log("父组件的创建");
   },
+  beforeMount() {
+    console.log("父组建的挂载前");
+  },
+  mounted() {
+    console.log("父组建的挂载");
+  },
+  beforeUpdate() {
+    console.log("父组建的更新前");
+  },
+  updated() {
+    console.log("父组建的更新");
+  },
+  beforeDestroy() {
+    console.log("父组建的销毁前");
+  },
+
   watch: {},
   methods: {
     dosomething(value) {
@@ -47,6 +68,7 @@ export default {
     },
   },
   destroyed() {
+    console.log("父组建的销毁");
     // 必须注销此事件 否则会造成内存泄漏
     this.$eventBus.$off("dobus");
   },
