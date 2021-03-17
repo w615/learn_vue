@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <div class="block">
@@ -5,7 +6,7 @@
       <el-date-picker
         v-model="value1"
         type="datetime"
-        @change="handle"
+        @change="setTime"
         placeholder="选择日期时间"
         default-time="12:00:00"
       >
@@ -46,6 +47,7 @@ export default {
       listArr: "",
       arr1: "",
       pickerOptions: {
+
           shortcuts: [
       {
             text: '三年后',
@@ -54,10 +56,10 @@ export default {
               this.year= null;    
               const date = new Date();
                 if( this.year%4==0&&this.year%100!=0||this.year%400==0){
-                 date.setTime(date.getTime() + 3600 * 1000 * 24 * 365*3 +3600 * 1000 * 24);
+                 date.setTime(date.getTime() + 3600 * 1000 * 24 * 365 * 3 +3600 * 1000 * 24);
                 }else{
-                 date.setTime(date.getTime() + 3600 * 1000 * 24 * 365*3);
-      }
+                 date.setTime(date.getTime() + 3600 * 1000 * 24 * 365 * 3);
+                }
               date.setTime(date.getTime() + 3600 * 1000 * 24 * 365*3);
               picker.$emit('pick', date);
             }
@@ -79,18 +81,16 @@ export default {
     // console.log(res);
   },
   methods: {
-    handle(){
-    const y = this.value1.getFullYear();
-    console.log(y,91);
+    setTime(){
+      const ifRUNyear  = this.value1.getFullYear();
       const date = new Date();
-      if( y%4==0&&y%100!=0||y%400==0){
-        date.setTime(date.getTime() + 3600 * 1000 * 24 * 365*3 );
+      if(ifRUNyear % 4 == 0 && ifRUNyear % 100 != 0||ifRUNyear % 400 == 0){
+        date.setTime(date.getTime() + 3600 * 1000 * 24 * 365 * 3 );
       }else{
-      date.setTime(date.getTime() + 3600 * 1000 * 24 * 365*3+3600 * 1000 * 24)          
+      date.setTime(date.getTime() + 3600 * 1000 * 24 * 365 * 3 + 3600 * 1000 * 24)          
       this.value2 = date;
     }
   },
-
     // 多维数组转化为一维数组 递归 ＋ reduce
     // flatten(ary) {
     //   return ary.reduce((pre, cur) => {
