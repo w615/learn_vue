@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .sonSlot {
-  height: 400px;
-  border: 1px solid green;
+  height: 300px;
+  border: 15px solid green;
 }
 </style>
