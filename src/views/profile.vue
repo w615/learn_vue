@@ -219,4 +219,87 @@ export default {
 .profile {
   margin-left: 20px;
 }
+<<<<<<< HEAD
+=======
+/*
+/* //    特点： 无返回值  不可break 
+
+
+  如何实现break
+  try {
+        var array = ["first","second","third","fourth"];        // 执行到第3次，结束循环
+        array.forEach(function(item,index){
+            if (item == "third") {
+                throw new Error("EndIterative");
+            }
+            alert(item);// first,sencond
+        }); 
+    } catch(e) { 
+        if(e.message!="EndIterative") throw e; 
+    };
+  如何实现continue
+  var arr = [1,2,3,4,5];
+  var num = 3;
+  arr.some(function(v){
+      if(v == num) {
+          return;  // 
+      }
+      console.log(v);
+  });
+---------------------------
+  var arr = [1,2,3,4,5]; 
+  var num = 3; 
+  arr.every(function(v){
+      if(v == num) {
+          return false;
+      }else{ 
+          console.log(v); 
+          return true;
+      }
+  });
+-----------------------------------
+
+
+//     */ /*
+Array.reduce
+function flatten(ary) {
+return ary.reduce((pre, cur) => {
+return pre.concat(Array.isArray(cur) ? flatten(cur) : cur);
+})
+}
+let ary = [1, 2, [3, 4], [5, [6, 7]]]
+console.log(ary.MyFlat(Infinity))
+----------------------------
+let result = [];
+let fn = function(ary) {
+for(let i = 0; i < ary.length; i++) }{
+let item = ary[i];
+if (Array.isArray(ary[i])){
+fn(item);
+} else {
+result.push(item);
+}
+}
+}
+while (ary.some(Array.isArray)) {
+ary = [].concat(...ary);
+}
+//   特点： 有返回值 不可break  即map是返回一个新数组，原数组不变，    https://www.runoob.com/jsref/jsref-map.html
+map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
+
+map() 方法按照原始数组元素顺序依次处理元素。
+
+注意： map() 不会对空数组进行检测。
+
+注意： map() 不会改变原始数组
+//     map((currentValue,index,arr)=>{}) 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
+//     currentValue 当前元素
+//     index 当前元素的索引值 
+//     arr   前元素所属的数组对象
+//   */
+
+/*
+
+// */
+>>>>>>> 6f67af42f70535d1d330687cd94060259994dd7d
 </style>
